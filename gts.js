@@ -1,4 +1,4 @@
-/* global songs createTextRow createNumberRow createCheckboxCol createButtonGroupRow createDropdownCol createRow createAlert keyDownHandler keyUpHandler */
+/* global songs createTextRow createNumberRow createCheckboxCol createButtonGroupRow createDropdownCol createDatalist deleteOptionFromDatalist createRow createAlert keyDownHandler keyUpHandler */
 const defaultStartTime = 0;
 const defaultDuration = 30;
 const defaultDel = true;
@@ -26,6 +26,14 @@ form.appendChild(createNumberRow(rowClass, colClass, firstRow));
 form.appendChild(createRow(rowClass, [createDropdownCol(colClass, ...secondRow[0]), createCheckboxCol(colClass + ' my-auto', ...secondRow[1])]));
 form.appendChild(createTextRow(rowClass, colClass, thirdRow));
 form.appendChild(createRow(rowClass, [createButtonGroupRow(buttonClass, 'btn-group', fourthRow)]));
+const artistsAll = [];
+const titles = [];
+for (const song of songs) {
+  artistsAll.push(song[0]);
+  titles.push(song[1]);
+}
+form.appendChild(createDatalist('guessArtist', 'guessArtistDatalist', Array.from(new Set(artistsAll))));
+form.appendChild(createDatalist('guessTitle', 'guessTitleDatalist', titles));
 document.querySelectorAll('.dropdown-item').forEach(e => {
   e.addEventListener('click', function () {
     document.getElementById('mode-text').innerText = this.innerText;
@@ -122,6 +130,11 @@ function end (className, text) {
   createAlert(className, text);
   if (del) {
     songs.splice(songIndex, 1);
+    artistsAll.splice(artistsAll.indexOf(song[0]), 1);
+    if (artistsAll.indexOf(song[0]) === -1) {
+      deleteOptionFromDatalist('guessArtistDatalist', song[0]);
+    }
+    deleteOptionFromDatalist('guessTitleDatalist', song[1]);
   }
   window.locked = true;
   createAlert('info', 'Restart the game!');
