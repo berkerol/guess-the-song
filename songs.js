@@ -289,7 +289,7 @@ const songs = [ // eslint-disable-line no-unused-vars
   ['Celine Dion', 'It\'s All Coming Back to Me Now', 'j8fHNdrZTSI', '1996', ['Pop']],
   ['Shania Twain', 'You\'re Still the One', 'KNZH-emehxA', '1997', ['Pop']],
   ['LeAnn Rimes', 'Can\'t Fight The Moonlight', 'bx3s99FNXzI', '2001', ['Pop']],
-  ['Crowded House', 'Don\'t Dream It\'s Over', 'J9gKyRmic20', '1986', ['Rock', 'New Wave]],
+  ['Crowded House', 'Don\'t Dream It\'s Over', 'J9gKyRmic20', '1986', ['Rock', 'New Wave']],
   ['Fugees', 'Killing Me Softly With His Song', 'oKOtzIo-uYw', '1996', ['R&B', 'Hip-Hop Soul']],
   ['Roberta Flack', 'Killing Me Softly With His Song', 'mrudT410TAI', '1973', ['Soul', 'Blues', 'Pop']],
   ['King Harvest', 'Dancing in the Moonlight', 'g5JqPxmYhlo', '1973', ['Pop']],
